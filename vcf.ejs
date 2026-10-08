@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>WaveHub · My VCF Panels</title>
+  <%- include('head') %>
+</head>
+<body>
+  <div class="shell">
+    <div class="topbar">
+      <button class="menu-toggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+      <div class="brand-name">My VCF Panels</div>
+      <button class="notif-bell-btn" id="notifBell" aria-label="Notifications">
+        <i class="fa-solid fa-bell"></i>
+        <span class="notif-dot" id="notifDot" style="display:none"></span>
+      </button>
+    </div>
+
+    <%- include('sidemenu') %>
+
+    <p class="page-sub">Create a panel, share its link, and let people add their name, number, and country code. You control if it's public, when downloads unlock, and if it expires.</p>
+
+    <div class="status-msg show error" id="loginNotice" style="display:none">
+      <a href="/register" style="text-decoration:underline;">Register</a> or <a href="/login" style="text-decoration:underline;">log in</a> to create a VCF panel.
+    </div>
+
+    <form class="card" id="createPanelForm" style="margin-bottom:20px;">
+      <div class="field">
+        <label for="panelTitle">Panel title *</label>
+        <input type="text" id="panelTitle" placeholder="e.g. My contacts" required>
+      </div>
+      <div class="field">
+        <label for="panelCover">Cover photo (image link, optional)</label>
+        <input type="url" id="panelCover" placeholder="https://... (image URL)">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="panelTarget">Target count (0 = no limit)</label>
+          <input type="number" id="panelTarget" min="0" value="0">
+        </div>
+        <div class="field">
+          <label for="panelDuration">Duration in hours (0 = no expiry)</label>
+          <input type="number" id="panelDuration" min="0" value="0">
+        </div>
+      </div>
+      <div class="field">
+        <label style="display:flex;align-items:center;gap:8px;font-weight:500;">
+          <input type="checkbox" id="panelPublic" style="width:auto;"> Public (visible on Explore)
+        </label>
+      </div>
+      <button class="btn btn-primary" type="submit" id="createPanelBtn">
+        <i class="fa-solid fa-plus"></i> Create panel
+      </button>
+      <div class="status-msg" id="createStatus"></div>
+    </form>
+
+    <div id="panelList"></div>
+
+    <div class="empty-state" id="emptyState" style="display:none">
+      <div class="glyph"><i class="fa-solid fa-address-book"></i></div>
+      <div>You haven't created any VCF panels yet.</div>
+    </div>
+    <footer class="site-footer">All Rights are reserved | DarkX-Ultra Tech 2026</footer>
+  </div>
+
+  <%- include('bottomnav') %>
+  <script src="/js/vcf.js"></script>
+</body>
+</html>

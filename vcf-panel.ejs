@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>WaveHub · VCF Panel</title>
+  <%- include('head') %>
+</head>
+<body data-slug="<%= slug %>" class="standalone-body">
+  <div class="shell standalone-shell">
+    <div class="standalone-header">
+      <div class="brand">
+        <div class="brand-mark"><span></span><span></span><span></span><span></span></div>
+        <div class="brand-name">Wave<span>Hub</span></div>
+      </div>
+    </div>
+
+    <div class="vcf-cover-wrap" id="coverWrap" style="display:none">
+      <img id="coverImg" src="" alt="">
+    </div>
+
+    <h1 class="page-title" id="panelTitle">VCF Panel</h1>
+    <p class="page-sub" id="panelSub">Add your number to this contact panel.</p>
+
+    <form class="card" id="submitForm">
+      <div class="field">
+        <label for="country">Country</label>
+        <select id="country"></select>
+      </div>
+
+      <div class="field">
+        <label for="fullName">Your name *</label>
+        <input type="text" id="fullName" placeholder="e.g. John Mahmoud" required maxlength="60">
+      </div>
+
+      <div class="field">
+        <label for="number">Phone number *</label>
+        <div class="number-input-wrap">
+          <span class="dial-code-prefix" id="dialCodePrefix">+255</span>
+          <input type="tel" id="number" placeholder="775710774" required>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit" id="submitBtn">
+        <i class="fa-solid fa-check"></i> Save my number
+      </button>
+      <div class="status-msg" id="statusMsg"></div>
+    </form>
+
+    <div class="standalone-footer">
+      <span>All Rights are reserved | DarkX-Ultra Tech 2026</span>
+    </div>
+  </div>
+
+  <script src="/js/countries.js"></script>
+  <script src="/js/vcf-panel.js"></script>
+</body>
+</html>
